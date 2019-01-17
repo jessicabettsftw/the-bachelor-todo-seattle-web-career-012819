@@ -36,15 +36,11 @@ end
 
 def get_occupation(data, hometown)
   data.each do |this_season, info|
-    if this_season == season
       info.each do |contestant|
-        if contestant["status"] == "Winner"
-          name = contestant["name"]
-          name_array = name.split(" ")
-          return name_array[0]
+        if contestant["hometown"] == hometown
+          return contestant["occupation"]
         end
       end
-    end
   end
 end
 
